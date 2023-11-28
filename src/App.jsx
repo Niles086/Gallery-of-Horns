@@ -1,16 +1,23 @@
-import './app.css'
+import './App.css'
 import Header from './components/Header.jsx'
 import Gallery from './components/Gallery.jsx'
 import Footer from './components/Footer.jsx'
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <Header title="Gallery of Horns" />
-      <Gallery title="Horned Animals" />
+      <main>
+      <Gallery title2="Horned Animals" />
+      </main>
       <Footer copyright="2023 Niles Thompson" />
     </div>
   );
 }
 
+
+
+
+
 export default App;
+

@@ -1,7 +1,7 @@
 function Footer(props) {
   return (
     <footer>
-      <p>{props.copyright}</p>
+      <p>Tracking things since &copy;{props.copyright}</p>
     </footer>
   );
 }
