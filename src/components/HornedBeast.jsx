@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 
 export default function HornedBeast(props) {
-  const [status, setStatus] = useState("like");
+  const [status, setStatus] = useState("");
   const [favoriteCount, setFavoriteCount] = useState(0);
 
   function handleClick() {

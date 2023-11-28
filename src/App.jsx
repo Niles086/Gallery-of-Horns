@@ -9,9 +9,9 @@ import imageUrls from './data.json';
 function App() {
   return (
   <Container>
-      <Header title="Gallery of Horns" />
+      <Header title="Gallery of Mythic Beasts" />
       
-      <Gallery message="Whats your Favorite!!! Horned Animal" imageUrls={imageUrls} />
+      <Gallery message="Whats your Favorite!!! Mythic Beast" imageUrls={imageUrls} />
       
       <Footer copyright="2023 Niles Thompson" />
   </Container>
