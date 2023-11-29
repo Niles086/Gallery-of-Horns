@@ -1,17 +1,32 @@
 
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import Header from './components/Header.jsx'
 import Gallery from './components/Gallery.jsx'
 import Footer from './components/Footer.jsx'
 import Container from 'react-bootstrap/Container'
+import SelectedBeast from './components/SelectedBeast.jsx'
 import imageUrls from './data.json';
+
 function App() {
+  const [selectedBeast, setSelectedBeast] = useState(null);
+
+  const handleBeastClick = (beast) => {
+    setSelectedBeast(beast);
+  };
+
+  const handleDeselectBeast = () => {
+    setSelectedBeast(null);
+  };
+
   return (
   <Container>
       <Header title="Gallery of Mythic Beasts" />
       
-      <Gallery message="Whats your Favorite!!! Mythic Beast" imageUrls={imageUrls} />
+      <Gallery message="Whats your Favorite!!! Mythic Beast" imageUrls={imageUrls} onSelectBeast={handleBeastClick} />
+
+      <SelectedBeast beast={selectedBeast} onClick={handleBeastClick} onDeselectBeast={handleDeselectBeast} />
       
       <Footer copyright="2023 Niles Thompson" />
   </Container>
