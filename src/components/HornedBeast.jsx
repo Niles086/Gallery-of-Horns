@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
+import React, { useState } from "react";
 import Image from "react-bootstrap/Image";
-import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 
 export default function HornedBeast(props) {
@@ -14,17 +14,18 @@ export default function HornedBeast(props) {
     } else {
       setFavoriteCount(favoriteCount - 1);
     }
-
   }
 
   return (
     <div onClick={handleClick}>
-      <Image src={props.image_url} alt="Horned Beast" rounded fluid></Image>
-      <h3>{status}{" "}
+      <Image src={props.image_url} alt={props.title} rounded fluid />
+      <h3>
+        {props.title}{" "}
         <span>
           <FaHeart /> {favoriteCount}
         </span>
       </h3>
+      <p>{props.description}</p>
     </div>
   );
 }
