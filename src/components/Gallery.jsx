@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HornedBeast from "./HornedBeast";
+import React, { useState } from "react";
 
 function Gallery(props) {
+  const [selectedImage, setSelectedImage] = useState(null);
   return (
     <div>
       <h2>{props.message}</h2>
@@ -17,6 +19,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => setSelectedImage(item)}
               />
             </Col>
           ))}
@@ -28,6 +31,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => setSelectedImage(item)}
               />
             </Col>
           ))}
@@ -39,6 +43,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => setSelectedImage(item)}
               />
             </Col>
           ))}
@@ -50,6 +55,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => setSelectedImage(item)}
               />
             </Col>
           ))}
@@ -61,6 +67,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => setSelectedImage(item)}
               />
             </Col>
           ))}

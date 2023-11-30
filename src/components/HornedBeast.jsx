@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "react-bootstrap/Image";
 import { FaHeart } from "react-icons/fa";
-import SelectedBeast from "./SelectedBeast";
+
 
 function HornedBeast({ title, image_url, description, onClick }) {
   const [status, setStatus] = useState("");
@@ -16,7 +16,7 @@ function HornedBeast({ title, image_url, description, onClick }) {
     } else {
       setFavoriteCount(favoriteCount - 1);
     }
-    onClick(SelectedBeast); // this is the onClick function that we passed in as a prop
+    onClick(); // this is the onClick function that we passed in as a prop
   }
 
   return (

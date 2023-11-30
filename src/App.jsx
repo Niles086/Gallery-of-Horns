@@ -1,4 +1,4 @@
-
+import Modal from './components/Modal.jsx';
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
@@ -9,15 +9,17 @@ import Container from 'react-bootstrap/Container'
 import SelectedBeast from './components/SelectedBeast.jsx'
 import imageUrls from './data.json';
 
+
 function App() {
-  const [selectedBeast, setSelectedBeast] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleBeastClick = (beast) => {
-    setSelectedBeast(beast);
+    console.log('Selected Beast', beast);
+    setSelectedImage(beast);
   };
 
   const handleDeselectBeast = () => {
-    setSelectedBeast(null);
+    selectedImage(null);
   };
 
   return (
@@ -26,8 +28,8 @@ function App() {
       
       <Gallery message="Whats your Favorite!!! Mythic Beast" imageUrls={imageUrls} onSelectBeast={handleBeastClick} />
 
-      <SelectedBeast beast={selectedBeast} onClick={handleBeastClick} onDeselectBeast={handleDeselectBeast} />
-      
+      <SelectedBeast beast={selectedImage} onClick={() => handleBeastClick(selectedImage)} onDeselectBeast={handleDeselectBeast} />
+      <Modal selectedImage={selectedImage} />
       <Footer copyright="2023 Niles Thompson" />
   </Container>
   );
