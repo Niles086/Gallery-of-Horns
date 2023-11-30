@@ -13,9 +13,7 @@ function HornedBeast({ title, image_url, description, onClick }) {
     setStatus(status === "like" ? "dislike" : "like");
     if (status === "like") {
       setFavoriteCount(favoriteCount + 1);
-    } else {
-      setFavoriteCount(favoriteCount - 1);
-    }
+    } 
     onClick(); // this is the onClick function that we passed in as a prop
   }
 
