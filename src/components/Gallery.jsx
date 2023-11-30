@@ -8,6 +8,14 @@ import React, { useState } from "react";
 
 function Gallery(props) {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleImageClick = (image) => {
+    props.onSelectBeast(image);
+    setSelectedImage(image);
+    setModalVisible(true);
+  };
+  
   return (
     <div>
       <h2>{props.message}</h2>
@@ -19,7 +27,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
-                onClick={() => setSelectedImage(item)}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
@@ -31,7 +39,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
-                onClick={() => setSelectedImage(item)}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
@@ -43,7 +51,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
-                onClick={() => setSelectedImage(item)}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
@@ -55,7 +63,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
-                onClick={() => setSelectedImage(item)}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
@@ -67,12 +75,13 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
-                onClick={() => setSelectedImage(item)}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
         </Row>
-
+        
+    
       </Container>
 
     </div>

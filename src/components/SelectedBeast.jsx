@@ -2,9 +2,10 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function SelectedBeast({ title, image_url, description, onHide }) {
+function SelectedBeast({ title, image_url, description, show, onHide }) {
     return (
         <Modal
+            show={show}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered

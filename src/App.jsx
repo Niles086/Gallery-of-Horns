@@ -1,4 +1,4 @@
-import Modal from './components/Modal.jsx';
+
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
@@ -12,24 +12,28 @@ import imageUrls from './data.json';
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
+const [show, setShow] = useState(false);
 
   const handleBeastClick = (beast) => {
     console.log('Selected Beast', beast);
     setSelectedImage(beast);
+    setShow(true);
   };
 
-  const handleDeselectBeast = () => {
-    selectedImage(null);
-  };
+function hideModal() {
+      setShow(false);
+  }
 
+console.log(selectedImage)
   return (
   <Container>
       <Header title="Gallery of Mythic Beasts" />
       
       <Gallery message="Whats your Favorite!!! Mythic Beast" imageUrls={imageUrls} onSelectBeast={handleBeastClick} />
-
-      <SelectedBeast beast={selectedImage} onClick={() => handleBeastClick(selectedImage)} onDeselectBeast={handleDeselectBeast} />
-      <Modal selectedImage={selectedImage} />
+         
+{selectedImage && <SelectedBeast title={selectedImage.title} image_url={selectedImage.image_url} description={selectedImage.description} show={show} onHide={hideModal}/>}
+     
+      
       <Footer copyright="2023 Niles Thompson" />
   </Container>
   );
