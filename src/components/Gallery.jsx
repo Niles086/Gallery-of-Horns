@@ -1,10 +1,21 @@
 /* eslint-disable react/prop-types */
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HornedBeast from "./HornedBeast";
+import React, { useState } from "react";
 
 function Gallery(props) {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleImageClick = (image) => {
+    props.onSelectBeast(image);
+    setSelectedImage(image);
+    setModalVisible(true);
+  };
+  
   return (
     <div>
       <h2>{props.message}</h2>
@@ -16,6 +27,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
@@ -27,6 +39,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
@@ -38,6 +51,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
@@ -49,6 +63,7 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
@@ -60,11 +75,13 @@ function Gallery(props) {
                 title={item.title}
                 image_url={item.image_url}
                 description={item.description}
+                onClick={() => handleImageClick(item)}
               />
             </Col>
           ))}
         </Row>
-
+        
+    
       </Container>
 
     </div>

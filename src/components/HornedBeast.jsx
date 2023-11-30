@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
+
 import React, { useState } from "react";
 import Image from "react-bootstrap/Image";
 import { FaHeart } from "react-icons/fa";
 
-export default function HornedBeast(props) {
+
+function HornedBeast({ title, image_url, description, onClick }) {
   const [status, setStatus] = useState("");
   const [favoriteCount, setFavoriteCount] = useState(0);
 
@@ -14,18 +16,21 @@ export default function HornedBeast(props) {
     } else {
       setFavoriteCount(favoriteCount - 1);
     }
+    onClick(); // this is the onClick function that we passed in as a prop
   }
 
   return (
-    <div onClick={handleClick}>
-      <Image src={props.image_url} alt={props.title} rounded fluid />
+    <div style={{ cursor: "pointer" }} onClick={handleClick}>
+      <Image src={image_url} alt={title} rounded fluid />
       <h3>
-        {props.title}{" "}
+        {title}{" "}
         <span>
           <FaHeart /> {favoriteCount}
         </span>
       </h3>
-      <p>{props.description}</p>
+      <p>{description}</p>
     </div>
   );
 }
+
+export default HornedBeast;
