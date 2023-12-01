@@ -149,7 +149,7 @@
       "title": "Horned Lizard",
       "description": "Fave food: ants",
       "keyword": "lizard",
-      "horns": 100
+      "horns": 4
     },
     {
       "_id": 20,
@@ -157,6 +157,6 @@
       "title": "Smaug",
       "description": "Fan illustration of Smaug from 'The Hobbit'",
       "keyword": "dragon",
-      "horns": 100
+      "horns": 4
     }
   ]
